@@ -337,15 +337,26 @@ def get_privacy_spent(
 
 if __name__ == '__main__':
     privacy = []
-    for step in range(1000):
-        rdp_step = compute_rdp(q=0.000006, noise_multiplier=1.0, steps=step, orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)))
-        privacy_step = get_privacy_spent(orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)), rdp=rdp_step, delta=1e-5)
-        print(privacy_step)
+    # for step in range(63582):
+    rdp_step_1 = compute_rdp(q=0.0017872, noise_multiplier=1.0, steps=63582, orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)))
+    privacy_step_1 = get_privacy_spent(orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)), rdp=rdp_step_1, delta=1e-5)
+
+    rdp_step_2 = compute_rdp(q=0.00191801387, noise_multiplier=1.0, steps=63582, orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)))
+    privacy_step_2 = get_privacy_spent(orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)), rdp=rdp_step_2, delta=1e-5)
+
+    rdp_step_3 = compute_rdp(q=0.00561704064, noise_multiplier=1.0, steps=63582, orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)))
+    privacy_step_3 = get_privacy_spent(orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)), rdp=rdp_step_3, delta=1e-5)
+
+    rdp_step_4 = compute_rdp(q=0.09829821125, noise_multiplier=1.0, steps=63582, orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)))
+    privacy_step_4 = get_privacy_spent(orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)), rdp=rdp_step_4, delta=1e-5)
+
+
+    print(privacy_step_1, privacy_step_2, privacy_step_3, privacy_step_4)
 
     # for step in range(100):
-    #     rdp_step = compute_rdp(q=0.1, noise_multiplier=1.0, steps=step, orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)))
-    #     privacy_step = get_privacy_spent(orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)), rdp=rdp_step, delta=1e-5)
-    #     print(privacy_step)
+    # rdp_step = compute_rdp(q=0.1, noise_multiplier=1.0, steps=63582, orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)))
+    # privacy_step = get_privacy_spent(orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)), rdp=rdp_step, delta=1e-5)
+    # print(privacy_step)
 
     # for step in range(100):
     #     rdp_step = compute_rdp(q=0.1, noise_multiplier=1.0, steps=step, orders=[1 + x / 10.0 for x in range(1, 100)] + list(range(12, 64)))
